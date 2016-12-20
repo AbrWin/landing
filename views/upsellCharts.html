@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 tablet_layer" style="position: fixed;">
+        <div id="carousel" class="carousel slide">
+            <div class="carousel-inner" role="listbox">
+                <div ng-repeat="upsell in upsells track by upsell.id">
+                    <div class="container view-container">
+
+                        <img ng-show="upsell.title_img" class="slide_logo_full" ng-src="{{upsell.title_img}}">
+                        <img ng-show="upsell.subtitle_img" class="slide_logo_img_full" ng-src="{{upsell.subtitle_img}}">
+                        <img class="" src="assets/img/cerrar.png" height="15" width="15" type="button" ng-click="generic('backNavigation')" ng-show="upsell.close_btn" ng-src="assets/img/cerrar.png" style="position: absolute; top: 0; right: 0; margin-right: 10px; margin-top: 20px">
+
+                        <div class="box-charts">
+                            <ul class="lines-text-regular">
+                                <li ng-show="upsell.ul_text1">{{upsell.ul_text1}}</li>
+                                <li ng-show="upsell.ul_text2">{{upsell.ul_text2}}</li>
+                                <li ng-show="upsell.ul_text3">{{upsell.ul_text3}}</li>
+                                <li ng-show="upsell.ul_text4">{{upsell.ul_text4}}</li>
+                            </ul>
+                            <img ng-show="upsell.sub_icon" ng-src="{{upsell.sub_icon}}" class="slide_sub_icon_full">
+                            <div class="btnCenter">
+                                <a ng-show="upsell.btn_block_text" type="button" class="btn btn-primary btn-block">	{{upsell.btn_block_text}}</a>
+                                <a ng-show="upsell.btn_block_text2" type="button" class="btn btn-primary btn-block">{{upsell.btn_block_text2}}</a>
+                                <div ng-show="upsell.sublabel" class="label-slide-full">{{upsell.sublabel}}<a class="label-slide-link" type="button" ng-click="generic('setAlreadyPlan')">{{upsell.sublabel_link}}</a></div>
+                            </div>
+
+                            <div class="lines-text-big">
+                                <div class="text-center">
+                                    {{upsell.txt_1}}  {{upsell.txt_2}} {{upsell.txt_3}} <br>
+                                    <a ng-show="upsell.txt_4" ng-click="generic('createSeeMoreInfo')" type="button">
+                                        <strong>{{upsell.txt_4}}</strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center" style="width: 100%; position: absolute; bottom: 0px; left: 0;">
+
+                            <!--Left Button with switch-->
+                            <div ng-switch="upsell.description">
+                                <div ng-switch-when="Charts">
+                                    <a href="#/upsellUnlimited?ct={{lang}}" type="button" class="btn btn-primary btn-lg btn-sticky-footer-full dbl-line-fix"><span class="ellipsis">{{upsell.btn_text_2}}</span></a>
+                                </div>
+                                <div ng-switch-when="Charts_countrys">
+                                    <a class="btn btn-primary btn-lg btn-sticky-footer-full img-bttn-fix-full">
+                                        <img type="button" ng-click="generic('redirectToBuyCharts')"  ng-src="{{upsell.btn_primary_img_left}}" class="slide_img_btn_full">
+                                    </a>
+                                </div>
+                                <div ng-switch-when="Charts_countrys_noImg">
+                                    <a type="button" ng-click="generic('redirectToBuyCharts')" class="btn btn-primary btn-lg btn-sticky-footer-full dbl-line-fix">
+                                         <div class="ellipsis">{{upsell.btn_text_1}}</div>
+                                    </a>
+                                </div>
+                                <div ng-switch-default>
+                                    <a href="#/upsellUnlimited?ct={{lang}}" type="button" class="btn btn-primary btn-lg btn-sticky-footer-full dbl-line-fix">{{upsell.btn_text_2}}</a>
+                                </div>
+                            </div>
+
+                            <!--Right Button-->
+
+                            <div ng-switch="upsell.description">
+                                <div ng-switch-when="Charts">
+                                    <a class="btn btn-primary btn-lg btn-sticky-footer-2-full img-bttn-fix-full">
+                                        <img type="button" ng-click="generic('redirectToBuyCharts')" ng-src="{{upsell.btn_primary_img_left}}" class="slide_img_btn_full">
+                                    </a>
+                                </div>
+                                <div ng-switch-when="Charts_countrys">
+                                    <a href="#/upsellUnlimited?ct={{lang}}" type="button" class="btn btn-primary btn-lg btn-sticky-footer-2-full dbl-line-fix">
+                                      <div class="ellipsis">{{upsell.btn_text_2}}</div>
+                                    </a>
+                                </div>
+                                <div ng-switch-when="Charts_countrys_noImg">
+                                    <a href="#/upsellUnlimited?ct={{lang}}" type="button" class="btn btn-primary btn-lg btn-sticky-footer-2-full dbl-line-fix">
+                                      <div class="ellipsis">{{upsell.btn_text_2}}</div>
+                                    </a>
+                                </div>
+                                <div ng-switch-default>
+                                    <a type="button" ng-click="generic('redirectToBuyCharts')" class="btn btn-primary btn-lg btn-sticky-footer-2-full img-bttn-fix-full" href="{{slide.ios_left_btn}}">
+                                        <img type="button" ng-click="generic('redirectToBuyCharts')" ng-show="upsell.btn_primary_img_left" ng-src="{{upsell.btn_primary_img_left}}" class="slide_img_btn_full">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="footer-block container">
+                                <div class="text-footer-left">{{upsell.footer_label}}</div>
+                                <div class="text-footer-right">{{upsell.footer_label2}}</div>
+                            </div>
+                            <!-- //footer-block -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

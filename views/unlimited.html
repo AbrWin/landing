@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-6 tablet_layer" style="position: fixed;">
+        <div id="carousel" class="carousel slide" data-interval="false" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div ng-repeat="page in pages track by page.id">
+                    <div class="container view-container">
+
+                        <img ng-show="page.logo" class="slide_logo" ng-src="{{page.logo}}">
+                        <img ng-show="page.logo_title" class="slide_logo_img" ng-src="{{page.logo_title}}">
+                        <div ng-show="page.title" class="title-slideUnlimited">{{page.title}}</div>
+                        <div class="box">
+                            <ul class="lines-textUnlimited" >
+                                <li ng-show="page.ul_text" >{{page.ul_text}}</li>
+                                <li>{{page.ul_text2}}</li>
+                                <li>{{page.ul_text3}}</li>
+                                <li>{{page.ul_text4}}</li>
+                                <li>{{page.ul_text5}}</li>
+                                <li ng-show="page.ul_text6">{{page.ul_text6}}</li>
+                            </ul>
+                            <div ng-show="page.sublabel" class="label-slide"><br>{{page.sublabel}}</div>
+                            <div ng-show="page.sublabel2" class="label-slide">{{page.sublabel2}}</div>
+                        </div>
+                        <!-- //box -->
+
+                        <div class="text-center" style="width: 100%; position: absolute; bottom: 0px; left: 0;">
+                            <!-- center cases -->
+                            <div ng-switch="page.trigger_1">
+                                <div ng-switch-when="redirectProvisionUser">
+                                    <a ng-click="generic('redirectProvisionUser')" type="button" class="btn btn-primary btn-block-custom">
+                                      {{page.btn_block_text}}
+                                    </a>
+                                </div>
+                                <div ng-switch-default>
+                                    <button ng-show="page.btn_block_text" type="button" class="btn btn-primary btn-lg btn-block btn-block-custom">
+                                        {{page.btn_block_text}}
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- //right cases -->
+
+                            <div class="footer-block container">
+                                <a href="#/landing?ct={{lang}}" class="text-footer-center">{{page.back}} </a>
+                            </div>
+                            <!-- //footer-block -->
+                        </div>
+                    </div>
+                    <!-- //container -->
+                </div>
+                <!-- //ng-repeat -->
+            </div>
+            <!-- //carousel-inner -->
+        </div>
+        <!-- //carousel -->
+    </div>
+    <!-- //container xs sm -->
+    <div class="col-sm-6"></div>
+</div>
+<!-- //row -->

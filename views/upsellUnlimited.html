@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 tablet_layer" style="position: fixed;">
+        <div id="carousel" class="carousel slide" data-interval="false" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div ng-repeat="upsell in upsells track by upsell.id">
+                    <div class="container view-container">
+
+
+                        <img ng-show="upsell.title_img" class="slide_logo_full" ng-src="{{upsell.title_img}}">
+                        <img ng-show="upsell.subtitle_img" class="slide_logo_img_full" ng-src="{{upsell.subtitle_img}}">
+                        <img type="button" height="15" width="15" ng-click="generic('backNavigation')" ng-show="upsell.close_btn" ng-src="{{upsell.close_btn}}" style="position: absolute; top: 3%; right: 3%;">
+
+                        <div class="box-unlimited">
+                            <ul class="lines-text-regular">
+                                <li ng-show="upsell.ul_text1">{{upsell.ul_text1}}</li>
+                                <li ng-show="upsell.ul_text2">{{upsell.ul_text2}}</li>
+                                <li ng-show="upsell.ul_text3">{{upsell.ul_text3}}</li>
+                                <li ng-show="upsell.ul_text4">{{upsell.ul_text4}}</li>
+                                <li ng-show="upsell.ul_text5">{{upsell.ul_text5}}</li>
+                                <li ng-show="upsell.ul_text6">{{upsell.ul_text6}}</li>
+                            </ul>
+                            <div class="btnCenter-full">
+                                <a ng-show="upsell.buttonCodePromotional" ng-click="generic('redirectToPincode')" type="button" class="btn btn-primary btn-block">{{upsell.buttonCodePromotional}}</a>
+                                <a ng-show="upsell.buttonOffer" ng-if="hideChartsBtn != 0" href="#/upsellCharts?ct={{lang}}" type="button" class="btn btn-primary btn-block">{{upsell.buttonOffer}}</a>
+
+                            </div>
+                            <div class="lines-text-big">
+                                <p class="text-center">
+                                    {{upsell.txt_1}}
+                                    {{upsell.txt_2}}
+                                    {{upsell.txt_3}}
+                                    <br>
+                                    <a ng-show="upsell.txt_4" ng-click="generic('createSeeMoreInfo')" type="button">
+                                       <strong>{{upsell.txt_4}}</strong>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="text-center" style="width: 100%; position: absolute; bottom: 0px; left:0;">
+                            <!-- left cases -->
+                            <div ng-switch="upsell.description">
+                                <div ng-switch-when="Unlimited">
+                                    <a href="#/upsellCharts?ct={{lang}}" class="btn btn-primary btn-lg btn-sticky-footer-full dbl-line-fix">
+                                        <span ng-show="upsell.btn_text_2" class="ellipsis">{{upsell.btn_text_2}}</span>
+                                    </a>
+                                </div>
+                                <div ng-switch-when="Unlimited_countrys">
+                                    <a ng-click="generic('redirectToBuyWeek')" class="btn btn-primary btn-lg btn-sticky-footer-full img-bttn-fix-full">
+                                        <img ng-show="upsell.btn_primary_img_left" ng-src="{{upsell.btn_primary_img_left}}" class="slide_img_btn_full">
+                                    </a>
+                                </div>
+                                <div ng-switch-default>
+                                    <a type="button" class="btn btn-primary btn-lg btn-sticky-footer-full img-bttn-fix-full">
+                                        {{upsell.btn_text_2}}
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- //left cases -->
+
+                            <!-- right cases -->
+                            <div ng-switch="upsell.description">
+                                <div ng-switch-when="Unlimited">
+                                    <a ng-click="generic('redirectToBuyMonth')" type="button" class="btn btn-primary btn-lg btn-sticky-footer-2-full img-bttn-fix-full">
+                                        <img ng-src="{{upsell.btn_primary_img_rigth}}" class="slide_img_btn_full">
+                                    </a>
+                                </div>
+                                <div ng-switch-default>
+                                    <a ng-click="generic('redirectToBuyMonth')" type="button" class="btn btn-primary btn-lg btn-sticky-footer-2-full img-bttn-fix-full">
+                                        <img ng-src="{{upsell.btn_primary_img_rigth}}" class="slide_img_btn_full">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- //right cases -->
+
+                            <div class="footer-block container">
+                                <div class="text-footer-left">{{upsell.footer_text1}}</div>
+                                <div class="text-footer-right">{{upsell.footer_text2}}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

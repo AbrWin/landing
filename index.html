@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="ClaroApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width; initial-scale=1; user-scalable=no">
+    <title>ClaroMusica</title>
+    <link href="assets/css/core.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="#" />
+</head>
+<body>
+    <!--
+    <video autoplay loop muted id="background">
+        <source src="assets/VideoSpotify.mp4" type="video/mp4">
+    </video>
+    -->
+    <div class="col-md-12 view-container">
+        <div ui-view>
+          <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script src="assets/lib/angular.js"></script>
+    <script src="assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="assets/lib/angular-animate.js"></script>
+    <script src="assets/lib/angular-touch.min.js"></script>
+
+    <!-- needs bower -->
+    <script src="assets/lib/jquery.min.js"></script>
+    <script src="assets/lib/bootstrap.min.js"></script>
+
+    <!-- core -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/unlimitedCtrl.js"></script>
+    <script src="app/controllers/upsellUnlimitedCtrl.js"></script>
+    <script src="app/controllers/upsellChartsCtrl.js"></script>
+    <script src="app/services/main.js"></script>
+    <script src="app/directives/main.js"></script>
+</body>
+</html>

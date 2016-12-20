@@ -1,0 +1,131 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-6 tablet_layer" style="position: fixed;">
+        <div id="carousel" class="carousel slide" data-interval="false" data-ride="carousel" ng-init="slideint(1)">
+            <ol class="carousel-indicators">
+                <li ng-repeat="slide in slides track by slide.id" data-target="#carousel" data-slide-to="{{$index}}" class="" ng-class="{ active: $index == valueIndex}"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox" ng-init="redirectSlideTo(slides.length-1)">
+                <div ng-repeat="slide in slides track by slide.id" class="item" ng-class="{ active: $index == valueIndex}" ng-swipe-left="sliderNext($index, slides.length)" ng-swipe-right="sliderPrev($index, slides.length)" >
+                    <div class="container view-container" >
+                        <img ng-show="slide.logo" class="slide_logo" ng-src="{{slide.logo}}">
+                        <img ng-show="slide.iconC" class="slide_logo_iconC" ng-src="{{slide.iconC}}">
+                        <img ng-show="slide.subtitleC" class="slide_logo_subtitleC" ng-src="{{slide.subtitleC}}">
+                        <img ng-show="slide.logo_title" class="slide_logo_img" ng-src="{{slide.logo_title}}">
+                        <div ng-show="slide.title" class="title-slide">{{slide.title}}</div>
+
+                        <div class="box">
+                            <ul class="lines-text">
+                                <li ng-show="slide.ul_text">{{slide.ul_text}}</li>
+                                <li ng-show="slide.ul_text2">{{slide.ul_text2}}</li>
+                                <li ng-show="slide.ul_text3">{{slide.ul_text3}}</li>
+                                <li ng-show="slide.ul_text4">{{slide.ul_text4}}</li>
+                                <li ng-show="slide.ul_text5">{{slide.ul_text5}}</li>
+                            </ul>
+                            <img ng-show="slide.sub_icon" ng-src="{{slide.sub_icon}}" class="slide_sub_icon">
+                            <div class="btnCenter">
+                                <a ng-show="slide.btn_block_text" type="button" href="#/unlimited?ct={{lang}}" class="btn btn-primary btn-block">
+                                    {{slide.btn_block_text}}<br>{{slide.btn_block_moreText}}
+                                </a>
+                                <a ng-show="slide.btn_block_text2" type="button" ng-click="generic('redirectToPincode')" class="btn btn-primary btn-block">
+                                    {{slide.btn_block_text2}}
+                                </a>
+                            </div>
+                            <div ng-show="slide.sublabel" class="label-slide">{{slide.sublabel}} <a class="label-slide-link" ng-click="generic('redirectToAnonymousHome', $index)">{{slide.sublabel_link}}</a></div>
+                            
+                            <!-- davidmx - 21-07-2016 - Notas legales -->
+                            <br>
+                            <div class="lines-text-big">
+                                <p class="text-center">
+                                    {{slide.txt_1}}
+                                    <br>
+                                    {{slide.txt_2}}
+                                    <br>
+                                    {{slide.txt_3}}
+                                </p>
+                            </div>
+                            <!-- //davidmx -->
+                        </div>
+                        <!-- //box -->
+
+
+                        <div class="text-center" style="width: 100%; position: absolute; bottom: 0px; left: 0;">
+
+                            <!-- left cases -->
+                            <div ng-switch="slide.trigger_1">
+                                <div ng-switch-when="redirectToAnonymousHome">
+                                    <a type="button" class="btn btn-primary btn-lg btn-sticky-footer" ng-click="generic('redirectToAnonymousHome', $index)">{{slide.btn_text}}</a>
+                                </div>
+                                <div ng-switch-when="redirectToRegister">
+                                    <a type="button" class="btn btn-primary btn-lg btn-sticky-footer" ng-click="generic('redirectToRegister')">{{slide.btn_text}}</a>
+                                </div>
+                                <div ng-switch-when="redirectToLogin">
+                                    <a type="button" class="btn btn-primary btn-lg btn-sticky-footer dbl-line-fix" ng-click="generic('redirectToLogin', $index)">{{slide.btn_text}}</a>
+                                </div>
+                                <div ng-switch-when="redirectToBuyWeek">
+                                    <a type="button" class="btn btn-primary btn-lg btn-sticky-footer img-bttn-fix" ng-click="generic('redirectToBuyWeek', $index)">
+                                        <img ng-show="slide.btn_primary_img_left" ng-src="{{slide.btn_primary_img_left}}" class="slide_img_btn">
+                                        <!--<span ng-show="slide.btn_text">{{slide.btn_text}}</span>-->
+                                    </a>
+                                </div>
+                                <div ng-switch-when="redirectToBuyCharts">
+                                    <a type="button" class="btn btn-primary btn-lg btn-sticky-footer img-bttn-fix" ng-click="generic('redirectToBuyCharts', $index)">
+                                        <img ng-show="slide.btn_primary_img_left" ng-src="{{slide.btn_primary_img_left}}" class="slide_img_btn">
+                                    </a>
+                                </div>
+                                <div ng-switch-when="redirectToBuyCharts-noImg">
+                                    <a type="button" class="btn btn-primary btn-lg btn-sticky-footer" ng-click="generic('redirectToBuyCharts', $index)">
+                                        {{slide.btn_text}}
+                                    </a>
+                                </div>
+                                <div ng-switch-default>
+                                    <a ng-show="slide.btn_text" type="button" class="btn btn-primary btn-lg btn-sticky-footer" ng-click="generic('bar')">{{slide.btn_text}}</a>
+                                </div>
+                            </div>
+                            <!-- //left cases -->
+
+                            <!-- right cases -->
+                            <div ng-switch="slide.trigger_2">
+                                <div ng-switch-when="redirectToBuyMonth">
+                                   <a type="button" class="btn btn-primary btn-lg btn-sticky-footer-2 img-bttn-fix" ng-click="generic('redirectToBuyMonth', $index)">
+                                       <img ng-show="slide.btn_primary_img_right" ng-src="{{slide.btn_primary_img_right}}" class="slide_img_btn">
+                                       <!--<span ng-show="slide.btn_text">{{slide.btn_text2}}</span>-->
+                                   </a>
+                               </div>
+                                <div ng-switch-when="redirectToBuyMonth-noImg">
+                                   <a type="button" class="btn btn-primary btn-lg btn-sticky-footer-2" ng-click="generic('redirectToBuyMonth', $index)">
+                                       <!--<span ng-show="slide.btn_text">{{slide.btn_text2}}</span>-->
+                                       {{slide.btn_text2}}
+                                   </a>
+                               </div>
+                                <div ng-switch-when="redirectToAnonymousHome">
+                                    <button ng-show="slide.btn_text2" type="button" class="btn btn-primary btn-lg btn-sticky-footer-2" data-target="#carousel" ng-click="generic('redirectToAnonymousHome', $index)">
+                                        {{slide.btn_text2}}
+                                    </button>
+                                </div>
+                                <div ng-switch-default>
+                                    <button ng-show="slide.btn_text2" type="button" class="btn btn-primary btn-lg btn-sticky-footer-2" data-target="#carousel" data-slide="{{slide.slide_next}}" ng-click="generic('sendAnalitics', $index)">
+                                        {{slide.btn_text2}}
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- //right cases -->
+
+                            <div class="footer-block container">
+                                <div class="text-footer-left">{{slide.footer_label}}</div>
+                                <div class="text-footer-right">{{slide.footer_label2}}</div>
+                            </div>
+                            <!-- //footer-block -->
+                        </div>
+                    </div>
+                    <!-- //container -->
+                </div>
+                <!-- //ng-repeat -->
+            </div>
+            <!-- //carousel-inner -->
+        </div>
+        <!-- //carousel -->
+    </div>
+    <!-- //container xs sm -->
+    <div class="col-sm-6"></div>
+</div>
+<!-- //row -->
